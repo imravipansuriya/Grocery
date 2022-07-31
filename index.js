@@ -7,39 +7,45 @@ dotenv.config()
 
 
 app.use("/public", express.static("public"));
-app.use( express.urlencoded ({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 const TodoTask = require("./models/TodoTask");
 
 
 
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
     res.render("index.ejs")
 })
 
-app.get("/list.ejs", (req, res)=>{
-   
+app.get("/list.ejs", (req, res) => {
+
     res.render("list.ejs")
-    
+
 });
 
-app.post("/list.ejs", async (req, res)=>{
 
- 
-    res.redirect("/list.ejs")
-
-})
+app.post('/list.ejs', async (req, res) => {
+    const todoTask = new TodoTask({
+        content: req.body.content
+    });
+    try {
+        await todoTask.save();
+        res.redirect("/list.ejs");
+    } catch (err) {
+        res.redirect("/");
+    }
+});
 
 
 
 // mongoose.set("useFindAndModify", false);
 
-mongoose.connect(process.env.DB_CONNECT, 
-    {userNewUrlParser: true}, ()=>{
+mongoose.connect(process.env.DB_CONNECT,
+    { userNewUrlParser: true }, () => {
 
         console.log("Connected to db!");
-    
-        app.listen(port, ()=>{console.log(`Server is listaning on Port ${port}`)})
-} )
+
+        app.listen(port, () => { console.log(`Server is listaning on Port ${port}`) })
+    })
 
