@@ -41,14 +41,15 @@
                     <div class="col-lg-6 mt-5">
                         <div class="my-3" id="currant_month"></div>
                         <div class="list_data">
-                            <form action="/" method="post">
+                            <form action="/list.ejs" method="post">
                                 <div class="mb-4">
-                                    <input type="text" class="form-control add_list_items" name="content">
+                                    <input type="text" value="" class="form-control add_list_items" name="content">
                                     <div id="" class="form-text">Enter your List Items</div>
                                     <button type="submit" class="btn">Add</button>
                                 </div>
                                 <div class="grocery_list">
                                     <ul>
+                                        < %item.forEach((content)=>{ % >
                                         <li>
                                             <p>Egg</p>
                                             <div class="buttons">
@@ -56,6 +57,7 @@
                                                 <a href="#" class="btn btn_close"><i class="fa-solid fa-xmark"></i></a>
                                             </div>
                                         </li>
+                                        <% }) %>
                                         <li>
                                             <p>Egg</p>
                                             <div class="buttons">

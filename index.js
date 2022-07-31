@@ -20,21 +20,32 @@ app.get("/", (req, res) => {
 
 app.get("/list.ejs", (req, res) => {
 
-    res.render("list.ejs")
+    // res.render("/list.ejs")
+    TodoTask.find( (err, found)=>{
+        if(err){
+            console.log(err)
+        } else{
+            res.render("/list.ejs", {content: found})
+        }
+    })
 
 });
 
 
-app.post('/list.ejs', async (req, res) => {
-    const todoTask = new TodoTask({
-        content: req.body.content
-    });
-    try {
-        await todoTask.save();
-        res.redirect("/list.ejs");
-    } catch (err) {
-        res.redirect("/");
-    }
+app.post('/list.ejs', (req, res) => {
+
+    console.log(req.body)
+    const input = req.body.input
+    const todoList = new TodoTask({
+        content: input
+    })
+    todoList.save((err)=>{
+        if(err){
+            console.log(err)
+        } else{
+            res.redirect('/list.ejs')
+        }
+    })
 });
 
 
