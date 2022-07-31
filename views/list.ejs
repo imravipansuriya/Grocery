@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="../public/css/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main>
+        <section class="list_wrp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="logo mt-5">
+                            <img src="./assets/images/logo_white.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 mt-5">
+                        <div class="my-3" id="currant_month"></div>
+                        <div class="list_data">
+                            <form action="/" method="post">
+                                <div class="mb-4">
+                                  <input type="text" class="form-control add_list_items" name="content">
+                                  <div id="" class="form-text">Enter your List Items</div>
+                                  <button type="submit" class="btn">Add</button>
+                                </div>
+                                <div class="grocery_list">
+                                    <ul>
+                                        <% todoTasks.forEach(details => { %>
+                                        <li>
+                                            <p><%= details.content %></p> 
+                                            <div class="buttons">
+                                                <a href="" class="btn purchased">Purchased</a>
+                                                <a href="/remove/<%= details._id %>" class="btn btn_close"><i class="fa-solid fa-xmark"></i></a>
+                                            </div>
+                                        </li>
+                                        <% }) %>    
+                                    </ul>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+
+</html>
