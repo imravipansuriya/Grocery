@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Josefin Slab', serif;
+        }
+
+        .add_list_items {
+            background-color: transparent;
+            border-radius: 0;
+            color: #fff;
+            height: auto;
+        }
+        
+        .add_list_items:focus {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff9c28;
+            color: #fff;
+            outline: 0;
+            padding: 1.4em 2.83em 1.1em;
+            font-size: 0.875em;
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: center;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+            border-radius: 0;
+            line-height: normal;
+            border: none;
+        }
+
+        .grocery_list ul {
+            padding: 0;
+        }
+
+        .grocery_list ul li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.068);
+            border: 1px solid #fff;
+            padding: 10px;
+            color: #fff;
+            margin-bottom: 10px;
+            border: 1px solid #3d3d3d;
+        }
+
+        .get_start_page,
+        .list_wrp {
+            background-color: #222;
+            min-height: 100vh;
+            height: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <script>
+        var currentMonth = document.getElementById('currant_month');
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var date = new Date();
+        var getMonth = month[date.getMonth()];
+        var setMonth = currentMonth.innerText = 'Plan for the month of ' + getMonth;
+
+    </script>

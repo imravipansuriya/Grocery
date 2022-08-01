@@ -1,0 +1,39 @@
+<%- include("./partials/header") %>
+    <div class="list_wrp">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">Todo App</a>
+            <div class="my-3" id="currant_month"></div>
+        </nav>
+
+        <div class="container mt-5">
+            <form action="/add/todo" method="POST" class="d-flex">
+                <input type="text" name="todo" class="form-control add_list_items" placeholder="Enter Todo">
+                <input type="submit" value="Add Todo" class="btn btn-md btn-primary mx-2">
+            </form>
+
+            <div class="grocery_list">
+                <ul class="list-group my-5">
+                    <% todo.forEach(todos=> { %>
+                        <li class="list-group-item">
+                            <%= todos.todo %> <a href="/delete/todo/<%= todos._id %>"
+                                    class="btn btn-danger btn-sm">Delete</a>
+                        </li>
+
+                        <% }) %>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var currentMonth = document.getElementById('currant_month');
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var date = new Date();
+        var getMonth = month[date.getMonth()];
+        var setMonth = currentMonth.innerText = 'Plan for the month of ' + getMonth;
+    </script>
+
+
+
+
+    <%- include("./partials/footer") %>
